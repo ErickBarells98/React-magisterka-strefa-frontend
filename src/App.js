@@ -5,12 +5,15 @@ import NotFound from './components/error/NotFound';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Login from './components/auth/Login';
+import { UserContextProvider } from './context/UserContext';
 
 
 function App() {
   return (
    
     <BrowserRouter>
+
+      <UserContextProvider>
       <Navbar />
 
       <Routes>
@@ -21,6 +24,8 @@ function App() {
       </Routes>
 
       <Footer/>
+      </UserContextProvider>
+      
     </BrowserRouter>
 
   );

@@ -6,8 +6,6 @@ import {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
 import axios from 'axios';
 
-import ProviderWrapper from './features/ProviderWrapper';
-
 axios.defaults.baseURL = 'https://localhost:44363/';
 axios.defaults.headers = {"Access-Control-Allow-Origin": "*"};
 
@@ -16,9 +14,7 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <ProviderWrapper>
       <App /> 
-    </ProviderWrapper>
   </StrictMode>,
 );
 

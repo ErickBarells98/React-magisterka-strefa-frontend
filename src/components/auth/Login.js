@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { Form, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Form, Row } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 
-import { useDispatch } from 'react-redux';
-import { login } from "../../features/userSlice";
+import UserContext from '../../context/UserContext';
+
 
 const Login = () => {
 
-  const dispatch = useDispatch();
+  const { login } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const [loginValues, setLoginValues] = useState({
     email: "",
@@ -23,7 +24,12 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(login({ email: loginValues.email, password: loginValues.password }));
+
+    let result = await login(loginValues);
+
+    if(!result){
+      navigate("/");
+    }
   }
 
   return (
