@@ -35,8 +35,8 @@ const Login = () => {
   return (
     <div className="container-custom">
     <div className="form-container">
-    <h2>Zaloguj się.</h2>
-    <hr />
+    <h2 style={{padding: 10, fontSize: 30}}>Zaloguj się.</h2>
+    <hr className='hr--custom'/>
     <Form>
         <Form.Group controlId="form.Email">
             <Row>
@@ -50,13 +50,14 @@ const Login = () => {
                 <Form.Control type="password" placeholder="Hasło" name="password" onChange={handleInputChange} value={loginValues.password}></Form.Control>
             </Row>
         </Form.Group>
-        <div>
-        <Link to="/restore" style={{color: "green", fontSize: 14, fontWeight: 600, marginLeft: "21%"}}>Zapomniałeś hasła?</Link>
-        </div>
-        
         <br />
         <div className="text-center">
-        <button className="custom-button" style={{ width: "275px"}} onClick={handleSubmit}>Zaloguj</button>
+        <button className="custom-button" style={{ width: "275px", marginBottom: 3}} onClick={handleSubmit}>Zaloguj</button>
+        </div>
+        <div>
+        <span style={{color: "#737373", fontSize: 14, marginLeft: "16%"}}>Nie pamiętasz jeszcze hasla?</span> <Link to="/restore" className='a--custom' style={{ fontSize: 14, fontWeight: 600}}>Przypomnij</Link>
+        <br/>
+        <span style={{color: "#737373", fontSize: 14, marginLeft: "16%"}}>Nie masz jeszcze konta?</span> <Link to="/register" className='a--custom' style={{ fontSize: 14, fontWeight: 600}}>Zarejestruj</Link>
         </div>
     </Form>
     </div>

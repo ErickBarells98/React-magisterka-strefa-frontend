@@ -16,8 +16,10 @@ const Register = () => {
     studiesType: 0,
     studiesLvL: 0,
     semestr: 1,
-    fieldOfStudy: 0
+    fieldOfStudy: 1
   });
+
+  const [errorValue, setErrorValues] = useState("");
 
   const handleInputChange = (e) => {
       const { name, value } = e.target;
@@ -48,53 +50,80 @@ const Register = () => {
 
   const handleSubmit = (e) => {
       e.preventDefault();
+      if(registrationValues.password === registrationValues.confirmPassword){
+        register();
+        navigate("/login");
+      }
+      else{
+        setErrorValues("Błędnie wprowadzone dane. Upewnij się że hasło się zgadza.")
+      }
   }
 
   const register = () => {
+        const newUser = {
+          email: registrationValues.email,
+          name: registrationValues.name,
+          surname: registrationValues.surname,
+          password: registrationValues.password,
+          studiesType: registrationValues.studiesType,
+          studiesLvl: registrationValues.studiesLvL,
+          semester: registrationValues.semestr,
+          fieldOfStudy: registrationValues.fieldOfStudy
+        };
+        
+        axios.post("/api/auth/register",newUser,{headers:{'Content-Type':'application/json'}})
+        .then(response => {
 
+        })
+        .catch(err => {
+            setErrorValues("Niepoprawnie wprowadzone dane.")
+        })
   }
 
 
   return (
     <div className="container-custom">
-    <div className="form-container" style={{width: 600, marginLeft: 0}}>
+    <div className="form-container" style={{width: 550, marginLeft: 0}}>
     <h2>Rejestracja</h2>
     <p>Utwórz nowe konto.</p>
     <hr />
+
+    { errorValue !== "" ? <p style={{color: "red"}}>{errorValue}</p> : <></>}
+
     <Form>
         <Form.Group controlId="form.Email">
             <Row className='row--custom'>
-                <Form.Label>Email</Form.Label>
+                <Form.Label className='register-label'>Email</Form.Label>
                 <Form.Control type="email" name="email" placeholder="Email" onChange={handleInputChange} value={registrationValues.email}></Form.Control>
             </Row>
         </Form.Group>
         <Form.Group controlId="form.Email">
             <Row className='row--custom'>
-                <Form.Label>Imię</Form.Label>
+                <Form.Label className='register-label'>Imię</Form.Label>
                 <Form.Control type="text" name="name" placeholder="Imie" onChange={handleInputChange} value={registrationValues.name}></Form.Control>
             </Row>
         </Form.Group>
         <Form.Group controlId="form.Email">
             <Row className='row--custom'>
-                <Form.Label>Nazwisko</Form.Label>
+                <Form.Label className='register-label'>Nazwisko</Form.Label>
                 <Form.Control type="text" name="surname" placeholder="Nazwisko" onChange={handleInputChange} value={registrationValues.surname}></Form.Control>
             </Row>
         </Form.Group>
         <Form.Group controlId="form.Login">
             <Row className='row--custom'>
-                <Form.Label>Hasło</Form.Label>
+                <Form.Label className='register-label'>Hasło</Form.Label>
                 <Form.Control type="password" placeholder="Hasło" name="password" onChange={handleInputChange} value={registrationValues.password}></Form.Control>
             </Row>
         </Form.Group>
         <Form.Group controlId="form.Login">
             <Row className='row--custom'>
-                <Form.Label>Potwierdź hasło</Form.Label>
+                <Form.Label className='register-label'>Potwierdź hasło</Form.Label>
                 <Form.Control type="password" placeholder="Potwierdź hasło" name="confirmPassword" onChange={handleInputChange} value={registrationValues.confirmPassword}></Form.Control>
             </Row>
         </Form.Group>
         <Form.Group>
           <Row className='row--custom'>
-          <Form.Label>Typ studiów</Form.Label>
+          <Form.Label className='register-label'>Typ studiów</Form.Label>
           <Form.Select value={registrationValues.studiesType} name="studiesType" onChange={handleSelectChange} style={{width: "70%"}}>
             <option value="0">Stacjonarne</option>
             <option value="1">Zaoczne</option>
@@ -103,7 +132,7 @@ const Register = () => {
         </Form.Group>
         <Form.Group>
           <Row className='row--custom'>
-          <Form.Label>Stopień studiów</Form.Label>
+          <Form.Label className='register-label'>Stopień studiów</Form.Label>
           <Form.Select value={registrationValues.studiesLvL} name="studiesLvL" onChange={handleSelectChange} style={{width: "70%"}}>
             <option value="0">Inżynierskie</option>
             <option value="1">Magisterskie</option>
@@ -112,7 +141,7 @@ const Register = () => {
         </Form.Group>
         <Form.Group>
           <Row className='row--custom'>
-          <Form.Label>Semestr</Form.Label>
+          <Form.Label className='register-label'>Semestr</Form.Label>
           <Form.Select value={registrationValues.semestr} name="semestr" onChange={handleSelectChange} style={{width: "70%"}}>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -130,11 +159,11 @@ const Register = () => {
         </Form.Group>
         <Form.Group>
           <Row className='row--custom'>
-            <Form.Label>Kierunek studiów</Form.Label>
+            <Form.Label className='register-label'>Kierunek studiów</Form.Label>
             <div className='registrationSelectBox'>
               <ListGroup>
-              <ListGroupItem onClick={handleClick} value="0" className={registrationValues.fieldOfStudy === 0 && 'selected-list-item'}>Informatyka</ListGroupItem>
-              <ListGroupItem onClick={handleClick} value="1" className={registrationValues.fieldOfStudy === 1 && 'selected-list-item'}>Matematyka</ListGroupItem>
+              <ListGroupItem onClick={handleClick} value="1" className={registrationValues.fieldOfStudy === 1 && 'selected-list-item'}>Informatyka</ListGroupItem>
+              <ListGroupItem onClick={handleClick} value="2" className={registrationValues.fieldOfStudy === 2 && 'selected-list-item'}>Matematyka</ListGroupItem>
               </ListGroup>
             </div>
           </Row>

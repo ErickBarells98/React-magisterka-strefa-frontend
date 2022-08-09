@@ -10,7 +10,7 @@ const Footer = () => {
                 <p>&copy; 2022 Eryk Beczek</p>
             </div>
             <div style={{ marginRight: 45}}>
-              <Link to="regulamin" style={{color: "green"}}>Deklaracja dostępności</Link>
+              <Link to="regulamin" className='a--custom'>Deklaracja dostępności</Link>
             </div>
         </div>
     </div>

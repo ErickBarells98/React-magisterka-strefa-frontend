@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import strefaLogo from '../../assets/LogoNapisSmall.png'
 
 import UserContext from '../../context/UserContext';
 
@@ -18,7 +19,9 @@ const Navbar = () => {
   return (
     <div className="custom-navbar">
         <div className="custom-navbar-content">
-                <Link to="/" className="logo-link"><h1 className="custom-nav-logo">NavbarLogo</h1></Link>
+                <Link to="/" className="logo-link">
+                    <img src={strefaLogo} width={100} ></img>    
+                </Link>
 
             <div className={`custom-nav-menu-list ${click ? "active" : ""}`}>
 
@@ -26,10 +29,10 @@ const Navbar = () => {
                     { isLogged ? 
                     <>
                         <li className="custom-nav-item">
-                        <Link to="/">Moje Kursy</Link>
+                        <Link to="/">Moje kursy</Link>
                         </li>
                         <li className="custom-nav-item">
-                        <Link to="/">Dostępne Kursy</Link>
+                        <Link to="/course">Dostępne kursy</Link>
                         </li>
                     </> 
                     :
@@ -54,7 +57,7 @@ const Navbar = () => {
                     :
                     <ul className="custom-nav-menu nav-right">
                     <li className="custom-nav-item">
-                        <Link to="/profile"><span style={{fontWeight: 700}}>Witaj {user.username}!</span></Link>
+                        <Link to="/profil"><span style={{fontWeight: 500}}>Witaj {user.username}!</span></Link>
                     </li>
                     <li className="custom-nav-item">
                         <Link to="" onClick={() => {signOut()}}>Wyloguj</Link>

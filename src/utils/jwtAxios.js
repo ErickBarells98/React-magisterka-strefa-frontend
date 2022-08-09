@@ -2,6 +2,9 @@ import axios from 'axios';
 
 const jwtAxios = axios.create();
 
+jwtAxios.defaults.baseURL = 'https://localhost:44363/';
+jwtAxios.defaults.headers = {"Access-Control-Allow-Origin": "*"};
+
 //Biorę bazową konfigurację axiosa i nadpisuje przy wysyłaniu żądania aby dodawał Bearer do autoryzacji, 
 //flage again dla powrótrzenia żądania i użycie Credentials.
 //Context jest parametrem przekazywanym przy kazdym zdaniu aby miec dostep do danych użytkownika z UserContext.
@@ -34,7 +37,7 @@ jwtAxios.interceptors.response.use(
         const orginalRequest = error.config;
         if(error.response && error.response.status === 401 && orginalRequest.again){
 
-            const { context } = originalRequest;
+            const { context } = orginalRequest;
             return axios.post('/api/auth/refresh',{headers:{'Content-Type':'application/json'},withCredentials:true})
                     .then(response => {
                         context.setJWT(response.data.jwt);
@@ -54,3 +57,5 @@ jwtAxios.interceptors.response.use(
         }
     }
 )
+
+export default jwtAxios;

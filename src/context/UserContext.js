@@ -25,7 +25,6 @@ export function UserContextProvider({children}){
     const { data, isLoading } = useQuery(["user"], _fechUserByRefreshToken);
     
     if(!isLoading && data && initialLoadData){
-        console.log(data);
         const logged_user = {
             username: data.email,
             jwt: data.jwt,

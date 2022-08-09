@@ -1,19 +1,31 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400&display=swap');
-
 body {
   margin: 0;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Helvetica', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Details CSS */
+
+.details-info > div {
+  height: 24px;
 }
 
+dl > div{
+  display: flex;
+  font-size: 14px;
+}
 
+dd{
+  width: 160px;
+  text-align: right;
+  font-weight: 550;
+}
+
+dt{
+  margin-left: 20px;
+  font-weight: 500 !important;
+}
 
 /* Navbar CSS */
 
@@ -24,14 +36,14 @@ code {
 }
 
 .custom-navbar-content{
-  width: 75%;
+  width: 1170px;
   margin: auto;
   height: 50px;
   display: flex;
   align-items: center;
   padding: 0 1rem;
   z-index: 10;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .custom-nav-menu-list{
@@ -149,7 +161,12 @@ ul{
 
 .form-container .row input{
   width: 70%;
+  font-size: 14px;
+}
+
+.register-label{
   font-size: 15px;
+  padding-right: 20px !important;
 }
  
 .row--custom label{
@@ -212,3 +229,23 @@ ul{
 .custom-button:hover{
   background-color: #2d8321;
 }
+
+.h1--custom{
+  font-size: 30px;
+}
+
+.hr--custom{
+  color: rgb(167, 166, 166);
+}
+
+.a--custom{
+  text-decoration: none;
+  color: green;
+}
+
+.a--custom:hover{
+  text-decoration: underline;
+  color: green;
+}
+
+
