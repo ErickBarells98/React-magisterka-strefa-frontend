@@ -7,6 +7,58 @@ body {
 
 /* Details CSS */
 
+.title-section{
+  background-color: rgb(238,238,238);
+  padding: 20px;
+}
+
+/* List container CSS */
+
+.nav-tabs{
+  border-bottom: 2px solid rgb(179, 179, 179) !important;
+}
+
+.ul-custom-list{
+  padding-left: 9px;
+}
+
+.ul-custom-list li{
+  padding-bottom: 5px;
+}
+
+.ul-custom-list li a{
+  cursor: pointer;
+  font-size: 13px;
+  color: green
+}
+
+.hr-list{
+  margin: 10;
+  border-top: 3px solid rgb(167, 166, 166);
+  margin-inline: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.nav-tabs--custom li button{
+  padding: 5px;
+  color: black !important;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.nav-tabs--custom li button.active{
+  background-color: rgb(96,96,96) !important;
+  color: white !important;
+}
+
+.container-list{
+  width: 50%;
+  margin-left: 3px;
+}
+
+/* Details CSS */
+
 .details-info > div {
   height: 24px;
 }
@@ -123,12 +175,14 @@ ul{
   margin: auto;
   color: #000;
   padding: 10px;
+  font-size: 14px;
+  margin-top: 10px;
 }
 
 .footer-credits{
   display: flex;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 20px;
   margin-bottom: 5px;
 }
 
@@ -168,10 +222,20 @@ ul{
   font-size: 15px;
   padding-right: 20px !important;
 }
+
+.row--custom.row{
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.row--custom.row input{
+  padding: 4px 12px 4px 12px;
+}
  
 .row--custom label{
   width: 30% !important;
   text-align: right !important;
+  font-size: 14px !important;
 }
 
 .row--custom input,.row--custom select{
@@ -206,6 +270,14 @@ ul{
 
 /* utilities */
 
+.button-container{
+  padding-top: 30px;
+}
+
+.button-container button:nth-child(n+2){
+  margin-left: 10px !important;
+}
+
 .container-custom{
   width: 70%;
   margin: auto;
@@ -226,12 +298,47 @@ ul{
   border: #50b34cd2 solid 0.5px;
 }
 
+.custom-blue-button{
+  background-color: rgb(51,122,183);
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  padding: 7px;
+  width: 40%;
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+  margin: auto;
+  transition: 0.1s ease;
+  border: rgb(54, 121, 180) solid 0.5px;
+}
+
+.custom-blue-button:hover{
+  background-color: rgb(41, 96, 145);
+}
+
 .custom-button:hover{
   background-color: #2d8321;
 }
 
 .h1--custom{
   font-size: 30px;
+}
+
+.h2--custom{
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 6px dotted rgb(179, 179, 179,0.3);
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.h3--custom{
+  font-size: 16px;
+  font-weight: 600;
+  padding-left: 10px;
+  padding-top: 5px;
+  margin: 0;
 }
 
 .hr--custom{
