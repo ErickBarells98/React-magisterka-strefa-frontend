@@ -14,7 +14,7 @@ body {
 
 /* List container CSS */
 
-.nav-tabs{
+.courses-tabs .nav-tabs{
   border-bottom: 2px solid rgb(179, 179, 179) !important;
 }
 
@@ -47,6 +47,14 @@ body {
   font-weight: 100;
 }
 
+.nav-tabs li button{
+  color: #2d8321 !important;
+}
+
+.nav-tabs li button.active{
+  color: rgb(92, 92, 92) !important;
+}
+
 .nav-tabs--custom li button.active{
   background-color: rgb(96,96,96) !important;
   color: white !important;
@@ -56,6 +64,16 @@ body {
   width: 50%;
   margin-left: 3px;
 }
+
+.content-list{
+  margin-left: 50px;
+}
+
+.content-container{
+  width: 500px;
+  margin-left: 70px; 
+}
+
 
 /* Details CSS */
 
@@ -311,6 +329,16 @@ ul{
   margin: auto;
   transition: 0.1s ease;
   border: rgb(54, 121, 180) solid 0.5px;
+}
+
+.disabled-button{
+  background-color: #9b9b9b;
+  pointer-events: none;
+}
+
+.disabled-button:hover{
+  background-color: #9b9b9b !important;
+  pointer-events: none;
 }
 
 .custom-blue-button:hover{

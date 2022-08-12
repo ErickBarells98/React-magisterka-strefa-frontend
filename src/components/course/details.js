@@ -1,12 +1,17 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState, useEffect } from 'react'
 import jwtAxios from '../../utils/jwtAxios'
 import { useQuery } from '@tanstack/react-query'
 import UserContext from '../../context/UserContext'
 import { useParams, useNavigate } from 'react-router-dom';
+import { Tabs, Tab } from 'react-bootstrap';
+
+import LaboratoriesList from '../labolatories/LaboratoriesList';
 
 const CourseDetails = () => {
 
   const context = useContext(UserContext);
+  const [requestJoinStatus,setRequestJoinStatus] = useState("not sent");
+  const [key,setKey] = useState("lab"); 
   const {id} = useParams();
   const navigate = useNavigate();
 
@@ -14,6 +19,16 @@ const CourseDetails = () => {
 
     const joinCourse = (e) => {
         e.preventDefault();
+
+        if(!isLoading && (courseData.data.IsApplicant || courseData.data.IsParticipant)){
+            jwtAxios.get(`/api/Course/joinCourse?id=${id}`,{context:context})
+            .then(response => {
+                setRequestJoinStatus("sent");
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        }
     }
 
     const goBack = (e) => {
@@ -21,6 +36,15 @@ const CourseDetails = () => {
         navigate("/course")
     }
 
+    useEffect(() => {
+        //console.log("wywoluje maciusia")
+        if(!isLoading && courseData.data.IsApplicant){
+            setRequestJoinStatus("sent");
+        }
+        if(!isLoading && courseData.data.IsParticipant){
+            setRequestJoinStatus("approved");
+        }  
+    },[courseData])
 
   return (
     <div className='details-tab'>
@@ -67,10 +91,42 @@ const CourseDetails = () => {
                 </div>
             </dl>
             }
+
+            <div className='content-container'>          
+                {
+                    requestJoinStatus === "approved" ? 
+                    <Tabs
+                    id="controlled-tab"
+                    activeKey={key}
+                    onSelect={(k) => setKey(k)}
+                    className="mb-3"
+                    >
+                    <Tab eventKey="lab" title="Laboratoria">
+                        <LaboratoriesList laboratories={courseData.data.Laboratories}/>
+                    </Tab>
+                    <Tab eventKey="lec" title="Wykłady">
+                        Wykłady
+                    </Tab>
+                    </Tabs>          
+                    :
+                    <></>
+                }
+            </div>
         </div>
+
+        
+        
         <div className='button-container' style={{width: "70%", margin: "auto"}}>
             <button className="custom-blue-button" style={{ width: "200px", marginBottom: 3}} onClick={goBack}>Wróc do listy kursów</button>
-            <button className="custom-button" style={{ width: "150px", marginBottom: 3}} onClick={joinCourse}>Dołącz do kursu</button>
+            
+            {
+                requestJoinStatus === "approved" ? 
+                <></> 
+                :
+                <button className={`custom-button ${requestJoinStatus === "sent" ? "disabled-button" : ""}`} style={{ width: "150px", marginBottom: 3}} onClick={joinCourse}>{requestJoinStatus === "not sent" ? "Dołącz do kursu" : "Wysłano prośbę."} </button> 
+            }
+            
+        
         </div>
     </div>
   )
