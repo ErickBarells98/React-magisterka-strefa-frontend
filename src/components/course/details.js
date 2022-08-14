@@ -5,7 +5,10 @@ import UserContext from '../../context/UserContext'
 import { useParams, useNavigate } from 'react-router-dom';
 import { Tabs, Tab } from 'react-bootstrap';
 
+import { FaArrowLeft } from 'react-icons/fa';
+
 import LaboratoriesList from '../labolatories/LaboratoriesList';
+import LecturesList from '../lectures/LecturesList';
 
 const CourseDetails = () => {
 
@@ -105,7 +108,7 @@ const CourseDetails = () => {
                         <LaboratoriesList laboratories={courseData.data.Laboratories}/>
                     </Tab>
                     <Tab eventKey="lec" title="Wykłady">
-                        Wykłady
+                        <LecturesList lectures={courseData.data.Lectures}/>
                     </Tab>
                     </Tabs>          
                     :
@@ -117,7 +120,7 @@ const CourseDetails = () => {
         
         
         <div className='button-container' style={{width: "70%", margin: "auto"}}>
-            <button className="custom-blue-button" style={{ width: "200px", marginBottom: 3}} onClick={goBack}>Wróc do listy kursów</button>
+            <button className="custom-blue-button" style={{ width: "200px", marginBottom: 3}} onClick={goBack}><FaArrowLeft/> Wróc do listy kursów</button>
             
             {
                 requestJoinStatus === "approved" ? 

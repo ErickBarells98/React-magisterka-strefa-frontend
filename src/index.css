@@ -12,6 +12,10 @@ body {
   padding: 20px;
 }
 
+.content-details-info{
+  font-size: 14px;
+}
+
 /* List container CSS */
 
 .courses-tabs .nav-tabs{
@@ -65,13 +69,19 @@ body {
   margin-left: 3px;
 }
 
-.content-list{
-  margin-left: 50px;
-}
-
 .content-container{
   width: 500px;
   margin-left: 70px; 
+}
+
+.file-display-row{
+  margin-left: 30px;
+  list-style: inside;
+}
+
+.file-display-container{
+  margin-bottom: 15px;
+  font-size: 14px;
 }
 
 
@@ -367,6 +377,16 @@ ul{
   padding-left: 10px;
   padding-top: 5px;
   margin: 0;
+}
+
+.h4--custom{
+  font-size: 15px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.h4--custom span{
+  color:rgb(189, 186, 186);
 }
 
 .hr--custom{
