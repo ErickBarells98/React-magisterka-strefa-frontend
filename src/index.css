@@ -5,6 +5,80 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* My Points CSS */
+
+.points-block{
+  border: solid 1px #a1df99;
+  height: 35px;
+  width: 30px;
+  border-radius: 0 25% 0 0 ;
+  margin-left: 10px;
+}
+
+.points-block .points-label{
+  font-size: 18px;
+  padding-top: 2px;
+}
+
+.points-block.presence-block:hover{
+  border: solid 1px black;
+}
+
+.point-container{
+  display: flex;
+  margin-left: 1px;
+}
+
+.points-list{
+  display: flex;
+  overflow-y: hidden;
+  padding-left: 10px;
+}
+
+.progress{
+  border: 1px solid #a1df99 !important;
+  background-color: #fff !important;
+}
+
+.points-list .progress-bar-container{
+  width: 80px;
+}
+
+.progress-bar.bg-success{
+  font-size: 9px !important;
+}
+
+.points-list-tag{
+  display: flex;
+  overflow-y: hidden;
+  padding-left: 15px;
+}
+
+.points-list-tag a{
+  margin-left: 25px;
+  font-size: 17px;
+  color: #2d8321;
+  font-weight: 600;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
+.points-list-tag a:hover{
+  text-decoration: underline;
+  color: #2d8321;
+}
+
+.points-list-tag span{
+  margin-top: 2px;
+  font-size: 15px;
+}
+
+.points-list-tag a span{
+  font-size: 11px;
+  font-weight: 500;
+  margin-left: 3px;
+}
+
 /* Details CSS */
 
 .title-section{
@@ -18,8 +92,13 @@ body {
 
 /* List container CSS */
 
+.nav-tabs--custom.coursesTab li button{
+   color:#000 !important;
+   font-size: 14px;
+}
+
 .courses-tabs .nav-tabs{
-  border-bottom: 2px solid rgb(179, 179, 179) !important;
+  border-bottom: 2px solid rgb(87, 87, 87) !important;
 }
 
 .ul-custom-list{
@@ -398,9 +477,30 @@ ul{
   color: green;
 }
 
+.a--custom-2{
+  text-decoration: none;
+  color: black;
+}
+
+.a--custom-2:hover{
+  text-decoration: underline;
+  color: green;
+}
+
 .a--custom:hover{
   text-decoration: underline;
   color: green;
 }
+
+.background--red{
+  background-color: red !important;
+}
+.background--green{
+  background-color: #a1df99;
+}
+.background--orange{
+  background-color: orange;
+}
+
 
 

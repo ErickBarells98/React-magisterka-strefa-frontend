@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const CoursesList = ({ courses }) => {
 
-    if(courses.CourseDTOs[1].length !== 0){
+    if(courses.CourseDTOs[1] !== undefined && courses.CourseDTOs[1].length !== 0){
         return (
             <div>
 

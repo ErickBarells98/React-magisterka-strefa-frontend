@@ -23,7 +23,7 @@ const CourseDetails = () => {
     const joinCourse = (e) => {
         e.preventDefault();
 
-        if(!isLoading && (courseData.data.IsApplicant || courseData.data.IsParticipant)){
+        if(!isLoading && (!courseData.data.IsApplicant || !courseData.data.IsParticipant)){
             jwtAxios.get(`/api/Course/joinCourse?id=${id}`,{context:context})
             .then(response => {
                 setRequestJoinStatus("sent");

@@ -29,7 +29,7 @@ const LaboratoriesList = ({ laboratories }) => {
 const LaboratoriesItem = ({item,downloadFile}) => {
     return(
       <li className='content-element'>
-        <h4 className='h4--custom'><span>{item.Number}</span> <Link className="a--custom" to={""}>{item.Name}.</Link></h4>
+        <h4 className='h4--custom'><span>{item.Number}</span> <Link className="a--custom" to={"/course/laboratories"} state={{id: item.ID}}>{item.Name}.</Link></h4>
         <div className='file-display-container'>
           <ul style={{padding:0}}>
           Pliki do pobrania: &#123;

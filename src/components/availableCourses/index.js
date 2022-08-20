@@ -27,7 +27,7 @@ const AvailableCourses = () => {
             id="controlled-tab"
             activeKey={key}
             onSelect={(k) => setKey(k)}
-            className="mb-3 nav-tabs--custom"
+            className="mb-3 nav-tabs--custom coursesTab"
           >
             <Tab eventKey="my" title="Mój semestr">
               <div className='container-list'>

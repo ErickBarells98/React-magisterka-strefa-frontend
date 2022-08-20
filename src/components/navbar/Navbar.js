@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import strefaLogo from '../../assets/LogoNapisSmall.png'
+import { TbLogout } from 'react-icons/tb';
 
 import UserContext from '../../context/UserContext';
 
@@ -29,7 +30,7 @@ const Navbar = () => {
                     { isLogged ? 
                     <>
                         <li className="custom-nav-item">
-                        <Link to="/">Moje kursy</Link>
+                        <Link to="/mycourse">Moje kursy</Link>
                         </li>
                         <li className="custom-nav-item">
                         <Link to="/course">Dostępne kursy</Link>
@@ -60,7 +61,7 @@ const Navbar = () => {
                         <Link to="/profil"><span style={{fontWeight: 500}}>Witaj {user.username}!</span></Link>
                     </li>
                     <li className="custom-nav-item">
-                        <Link to="" onClick={() => {signOut()}}>Wyloguj</Link>
+                        <Link to="" onClick={() => {signOut()}}><TbLogout size={19}/> Wyloguj</Link>
                     </li>
                     </ul>
                     }
