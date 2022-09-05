@@ -40,7 +40,6 @@ const CourseDetails = () => {
     }
 
     useEffect(() => {
-        //console.log("wywoluje maciusia")
         if(!isLoading && courseData.data.IsApplicant){
             setRequestJoinStatus("sent");
         }
