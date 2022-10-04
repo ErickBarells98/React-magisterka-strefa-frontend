@@ -6,7 +6,7 @@ import {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://localhost:44363/';
+axios.defaults.baseURL = 'https://magisterstrefaapi.azurewebsites.net/';
 axios.defaults.headers = {"Access-Control-Allow-Origin": "*"};
 
 const rootElement = document.getElementById('root');

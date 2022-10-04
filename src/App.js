@@ -52,7 +52,7 @@ function App() {
       <Footer/>
       </UserContextProvider>
 
-      <ReactQueryDevtools />
+      {/* <ReactQueryDevtools /> */}
 
     </QueryClientProvider>
     </BrowserRouter>

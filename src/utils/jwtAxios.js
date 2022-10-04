@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const jwtAxios = axios.create();
 
-jwtAxios.defaults.baseURL = 'https://localhost:44363/';
+jwtAxios.defaults.baseURL = 'https://magisterstrefaapi.azurewebsites.net/';
 jwtAxios.defaults.headers = {"Access-Control-Allow-Origin": "*"};
 
 //Biorę bazową konfigurację axiosa i nadpisuje przy wysyłaniu żądania aby dodawał Bearer do autoryzacji, 
@@ -38,7 +38,7 @@ jwtAxios.interceptors.response.use(
         if(error.response && error.response.status === 401 && orginalRequest.again){
 
             const { context } = orginalRequest;
-            return axios.post('/api/auth/refresh',{headers:{'Content-Type':'application/json'},withCredentials:true})
+            return axios.post('/api/auth/refresh',{},{withCredentials:true})
                     .then(response => {
                         context.setJWT(response.data.jwt);
                         orginalRequest.headers.Authorization = 'Bearer ' + response.data.jwt;
