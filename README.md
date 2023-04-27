@@ -1,6 +1,6 @@
-### This project was generated with [create-react-app](https://github.com/facebook/create-react-app) tool.
-
 ## React 17.0.2 / 18.1.0 v.
+
+#This project was generated with [create-react-app](https://github.com/facebook/create-react-app) tool.
 
 This project is created and maintained for master thesis purpouses.
 
